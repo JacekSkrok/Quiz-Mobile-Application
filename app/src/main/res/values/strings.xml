@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">QuizApplication</string>
+    <string name="question_text">Question text</string>
+    <string name="answer_d">Answer D</string>
+    <string name="answer_c">Answer C</string>
+    <string name="answer_b">Answer B</string>
+    <string name="answer_a">Answer A</string>
+    <string name="add_menu">ADD</string>
 </resources>
