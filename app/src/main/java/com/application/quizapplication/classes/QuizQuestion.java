@@ -1,4 +1,4 @@
-package com.application.quizapplication;
+package com.application.quizapplication.classes;
 
 public class QuizQuestion {
     private String id;
