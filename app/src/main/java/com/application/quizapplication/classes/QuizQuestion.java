@@ -9,6 +9,9 @@ public class QuizQuestion {
     private String answerD;
     private String imageUrl;
 
+    public QuizQuestion() {
+    }
+
     public QuizQuestion(String questionText, String answerA, String answerB, String answerC, String answerD, String imageUrl) {
         this.setId(id);
         this.setQuestionText(questionText);
