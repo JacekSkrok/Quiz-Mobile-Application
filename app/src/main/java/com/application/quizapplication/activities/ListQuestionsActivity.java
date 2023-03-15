@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.application.quizapplication.R;
+import com.application.quizapplication.Utils.FirebaseUtil;
 import com.application.quizapplication.classes.QuizQuestion;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import com.application.quizapplication.Utils.FirebaseUtil;
+
 public class ListQuestionsActivity extends AppCompatActivity {
 
     ArrayList<QuizQuestion> quizQuestions;
@@ -28,10 +31,12 @@ public class ListQuestionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_questions);
+        FirebaseUtil.opnFbReference("quizquestions");
+        aFirebaseDatabase = FirebaseUtil.aFirebaseDatabase;
+        aDatabaseReference = FirebaseUtil.aDatabaseReference;
 
-        aFirebaseDatabase = FirebaseDatabase.getInstance();
-        aDatabaseReference = aFirebaseDatabase.getReference().child("quizquestions");
         aChildListener = new ChildEventListener() {
+
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 TextView tvQuestions = findViewById(R.id.tvQuestions);
