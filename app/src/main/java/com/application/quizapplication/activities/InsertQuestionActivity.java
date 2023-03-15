@@ -15,21 +15,23 @@ import com.application.quizapplication.classes.QuizQuestion;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.application.quizapplication.Utils.FirebaseUtil;
+
 public class InsertQuestionActivity extends AppCompatActivity {
     private FirebaseDatabase aFirebaseDatabase;
     private DatabaseReference aDatabaseReference;
 
-    EditText txtQuestiontext;
+    EditText txtQuestionText;
     EditText txtAnswerA, txtAnswerB, txtAnswerC, txtAnswerD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_question);
-
-        aFirebaseDatabase = FirebaseDatabase.getInstance();
-        aDatabaseReference = aFirebaseDatabase.getReference().child("quizquestions");
-        txtQuestiontext = findViewById(R.id.questionName);
+        FirebaseUtil.opnFbReference("quizquestions");
+        aFirebaseDatabase = FirebaseUtil.aFirebaseDatabase;
+        aDatabaseReference = FirebaseUtil.aDatabaseReference;
+        txtQuestionText = findViewById(R.id.questionName);
         txtAnswerA = findViewById(R.id.answerA);
         txtAnswerB = findViewById(R.id.answerB);
         txtAnswerC = findViewById(R.id.answerC);
@@ -51,16 +53,16 @@ public class InsertQuestionActivity extends AppCompatActivity {
     }
 
     private void clean() {
-        txtQuestiontext.setText("");
+        txtQuestionText.setText("");
         txtAnswerA.setText("");
         txtAnswerB.setText("");
         txtAnswerC.setText("");
         txtAnswerD.setText("");
-        txtQuestiontext.requestFocus();
+        txtQuestionText.requestFocus();
     }
 
     private void addQuestion() {
-        String questiontxt = txtQuestiontext.getText().toString();
+        String questiontxt = txtQuestionText.getText().toString();
         String answerA = txtAnswerA.getText().toString();
         String answerB = txtAnswerB.getText().toString();
         String answerC = txtAnswerC.getText().toString();
