@@ -89,14 +89,17 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
     }
 
     public class QuestionViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle;
+        TextView tvId;
+        TextView tvQuestionText;
         public QuestionViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvId = itemView.findViewById(R.id.tvId);
+            tvQuestionText = itemView.findViewById(R.id.tvQuestionText);
         }
 
         public void bind (QuizQuestion question) {
-            tvTitle.setText(question.getQuestionText());
+            tvId.setText(question.getId());
+            tvQuestionText.setText(question.getQuestionText());
         }
     }
 }
