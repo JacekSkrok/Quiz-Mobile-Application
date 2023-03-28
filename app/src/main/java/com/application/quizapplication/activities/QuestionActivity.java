@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import com.application.quizapplication.Utils.FirebaseUtil;
 
-public class InsertQuestionActivity extends AppCompatActivity {
+public class QuestionActivity extends AppCompatActivity {
     private FirebaseDatabase aFirebaseDatabase;
     private DatabaseReference aDatabaseReference;
 

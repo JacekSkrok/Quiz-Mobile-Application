@@ -1,27 +1,18 @@
 package com.application.quizapplication.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.quizapplication.R;
-import com.application.quizapplication.Utils.FirebaseUtil;
 import com.application.quizapplication.classes.QuestionAdapter;
-import com.application.quizapplication.classes.QuizQuestion;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-
-import com.application.quizapplication.Utils.FirebaseUtil;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 public class ListQuestionsActivity extends AppCompatActivity {
 
@@ -36,5 +27,23 @@ public class ListQuestionsActivity extends AppCompatActivity {
         LinearLayoutManager questionLayoutManager =
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvQuestions.setLayoutManager(questionLayoutManager);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.list_questions_activity_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.insert_menu:
+                Intent intent = new Intent(this, QuestionActivity.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
