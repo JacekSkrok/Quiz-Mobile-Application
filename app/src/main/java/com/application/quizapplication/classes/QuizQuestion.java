@@ -1,6 +1,8 @@
 package com.application.quizapplication.classes;
 
-public class QuizQuestion {
+import java.io.Serializable;
+
+public class QuizQuestion implements Serializable {
     private String id;
     private String questionText;
     private String answerA;

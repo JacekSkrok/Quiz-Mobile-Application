@@ -3,7 +3,9 @@ package com.application.quizapplication.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,6 +25,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     EditText txtQuestionText;
     EditText txtAnswerA, txtAnswerB, txtAnswerC, txtAnswerD;
+    QuizQuestion question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,21 @@ public class QuestionActivity extends AppCompatActivity {
         txtAnswerB = findViewById(R.id.answerB);
         txtAnswerC = findViewById(R.id.answerC);
         txtAnswerD = findViewById(R.id.answerD);
+
+        Intent intent = getIntent();
+        QuizQuestion question = (QuizQuestion) intent.getSerializableExtra("QuizQuestion");
+        if (question == null)
+        {
+            question = new QuizQuestion();
+        }
+        this.question = question;
+        txtQuestionText.setText(question.getQuestionText());
+        Log.e("sd", String.valueOf(txtQuestionText));
+        txtAnswerA.setText(question.getAnswerA());
+        txtAnswerB.setText(question.getAnswerB());
+        txtAnswerC.setText(question.getAnswerC());
+        txtAnswerD.setText(question.getAnswerD());
+
     }
 
     @Override

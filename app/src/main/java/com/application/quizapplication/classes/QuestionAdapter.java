@@ -1,6 +1,7 @@
 package com.application.quizapplication.classes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.quizapplication.R;
 import com.application.quizapplication.Utils.FirebaseUtil;
+import com.application.quizapplication.activities.QuestionActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -88,18 +90,30 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
         return quizQuestions.size();
     }
 
-    public class QuestionViewHolder extends RecyclerView.ViewHolder {
+    public class QuestionViewHolder extends RecyclerView.ViewHolder implements
+    View.OnClickListener{
         TextView tvId;
         TextView tvQuestionText;
         public QuestionViewHolder(@NonNull View itemView) {
             super(itemView);
             tvId = itemView.findViewById(R.id.tvId);
             tvQuestionText = itemView.findViewById(R.id.tvQuestionText);
+            itemView.setOnClickListener(this);
         }
 
         public void bind (QuizQuestion question) {
             tvId.setText(question.getId());
             tvQuestionText.setText(question.getQuestionText());
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            Log.d("Click", String.valueOf(position));
+            QuizQuestion selectedQuestion = quizQuestions.get(position);
+            Intent intent = new Intent(view.getContext(), QuestionActivity.class);
+            intent.putExtra("Question", selectedQuestion);
+            view.getContext().startActivity(intent);
         }
     }
 }
