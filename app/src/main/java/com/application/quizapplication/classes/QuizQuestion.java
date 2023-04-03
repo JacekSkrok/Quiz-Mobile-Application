@@ -1,5 +1,7 @@
 package com.application.quizapplication.classes;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class QuizQuestion implements Serializable {
@@ -33,6 +35,7 @@ public class QuizQuestion implements Serializable {
     }
 
     public String getQuestionText() {
+        Log.d("sd", questionText);
         return questionText;
     }
 

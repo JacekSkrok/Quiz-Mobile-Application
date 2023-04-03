@@ -34,7 +34,7 @@ public class QuestionActivity extends AppCompatActivity {
         FirebaseUtil.opnFbReference("quizquestions");
         aFirebaseDatabase = FirebaseUtil.aFirebaseDatabase;
         aDatabaseReference = FirebaseUtil.aDatabaseReference;
-        txtQuestionText = findViewById(R.id.questionName);
+        txtQuestionText = (EditText) findViewById(R.id.questionName);
         txtAnswerA = findViewById(R.id.answerA);
         txtAnswerB = findViewById(R.id.answerB);
         txtAnswerC = findViewById(R.id.answerC);
@@ -48,7 +48,6 @@ public class QuestionActivity extends AppCompatActivity {
         }
         this.question = question;
         txtQuestionText.setText(question.getQuestionText());
-        Log.e("sd", String.valueOf(txtQuestionText));
         txtAnswerA.setText(question.getAnswerA());
         txtAnswerB.setText(question.getAnswerB());
         txtAnswerC.setText(question.getAnswerC());

@@ -112,7 +112,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
             Log.d("Click", String.valueOf(position));
             QuizQuestion selectedQuestion = quizQuestions.get(position);
             Intent intent = new Intent(view.getContext(), QuestionActivity.class);
-            intent.putExtra("Question", selectedQuestion);
+            intent.putExtra("QuizQuestion", selectedQuestion);
             view.getContext().startActivity(intent);
         }
     }
