@@ -18,8 +18,9 @@ public class FirebaseUtil {
         if(aFirebaseUtil == null) {
             aFirebaseUtil = new FirebaseUtil();
             aFirebaseDatabase = FirebaseDatabase.getInstance();
-            aQuestions = new ArrayList<QuizQuestion>();
+
         }
+        aQuestions = new ArrayList<QuizQuestion>();
         aDatabaseReference = aFirebaseDatabase.getReference().child(ref);
     }
 

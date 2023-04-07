@@ -6,4 +6,5 @@
     <string name="answer_b">Answer B</string>
     <string name="answer_a">Answer A</string>
     <string name="add_menu">ADD</string>
+    <string name="delete_menu">DELETE</string>
 </resources>

@@ -61,7 +61,13 @@ public class QuestionActivity extends AppCompatActivity {
             case R.id.add_menu:
                 addQuestion();
                 Toast.makeText(this, "Question added", Toast.LENGTH_LONG).show();
+                backToList();
                 clean();
+                return true;
+            case R.id.delete_menu:
+                deleteQuestion();
+                Toast.makeText(this, "Question deleted", Toast.LENGTH_LONG).show();
+                backToList();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -79,7 +85,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void addQuestion() {
-        question.setQuestionText(txtQuestionText.getText().toString();
+        question.setQuestionText(txtQuestionText.getText().toString());
         question.setAnswerA(txtAnswerA.getText().toString());
         question.setAnswerB(txtAnswerB.getText().toString());
         question.setAnswerC(txtAnswerC.getText().toString());
