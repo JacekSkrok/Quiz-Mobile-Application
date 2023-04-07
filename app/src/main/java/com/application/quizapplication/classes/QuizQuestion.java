@@ -35,7 +35,6 @@ public class QuizQuestion implements Serializable {
     }
 
     public String getQuestionText() {
-        Log.d("sd", questionText);
         return questionText;
     }
 

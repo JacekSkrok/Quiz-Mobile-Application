@@ -79,16 +79,18 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void addQuestion() {
-        String questiontxt = txtQuestionText.getText().toString();
-        String answerA = txtAnswerA.getText().toString();
-        String answerB = txtAnswerB.getText().toString();
-        String answerC = txtAnswerC.getText().toString();
-        String answerD = txtAnswerD.getText().toString();
+        question.setQuestionText(txtQuestionText.getText().toString();
+        question.setAnswerA(txtAnswerA.getText().toString());
+        question.setAnswerB(txtAnswerB.getText().toString());
+        question.setAnswerC(txtAnswerC.getText().toString());
+        question.setAnswerD(txtAnswerD.getText().toString());
 
-        QuizQuestion question = new QuizQuestion(questiontxt, answerA, answerB, answerC, answerD, "");
-
-        aDatabaseReference.push().setValue(question);
-
+        if(question.getId() == null) {
+            aDatabaseReference.push().setValue(question);
+        }
+        else {
+            aDatabaseReference.child(question.getId()).setValue(question);
+        }
     }
 
     @Override
