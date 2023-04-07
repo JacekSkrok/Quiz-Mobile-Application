@@ -93,6 +93,18 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
+    private void deleteQuestion() {
+        if(question.getId() == null) {
+            Toast.makeText(this, "Question doesn't exists", Toast.LENGTH_SHORT).show();
+        }
+        aDatabaseReference.child(question.getId()).removeValue();
+    }
+
+    private void backToList() {
+        Intent intent = new Intent(this, ListQuestionsActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
