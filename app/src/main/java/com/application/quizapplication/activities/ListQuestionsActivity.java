@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.quizapplication.R;
+import com.application.quizapplication.Utils.FirebaseUtil;
 import com.application.quizapplication.classes.QuestionAdapter;
 
 import android.content.Intent;
@@ -45,5 +46,17 @@ public class ListQuestionsActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        FirebaseUtil.detachListener();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FirebaseUtil.attachListener();
     }
 }
